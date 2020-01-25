@@ -20,13 +20,8 @@ function getResult(a, b, c) {
     else if (d > 0) {
         x[0] = (-b + Math.sqrt(d)) / 2 * a;
         x[1] = (-b - Math.sqrt(d)) / 2 * a;
-
     }
-
     return x;
-
-    // код для задачи №1 писать здесь
-    //return x;
 }
 
 function calculateAverageRating() {
