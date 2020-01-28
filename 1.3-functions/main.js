@@ -47,7 +47,7 @@ function showSolutionsMessage(a, b, c) {
 //     music: [5, 5, 5, 5, 5]
 // }
 
-function getAverageMark(discipline) {
+function getAverageMarkByCourse(discipline) {
     let sum = 0;
     for (let i = 0; i < discipline.length; i++) {
         sum += discipline[i];
@@ -60,11 +60,27 @@ function getAverageScore(data) {
     let counter = 0;
     for (let prop in data) {
         marksByCourse = data[prop];
-        data[prop] = getAverageMark(marksByCourse);
-        sumMark += getAverageMark(marksByCourse);
+        data[prop] = getAverageMarkByCourse(marksByCourse);
+        sumMark += getAverageMarkByCourse(marksByCourse);
         counter++;
     }
     data.average = sumMark / counter;
     return data;
 }
 
+//Задача №3
+
+function getPersonData(secretData) {
+    let piratesNames = {
+        firstName: '',
+        secondName: ''
+    }
+    piratesNames.firstName = getData(secretData[0]);
+    piratesNames.secondName = getData(secretData[1]);
+    return piratesNames;
+}
+
+function getData(n) {
+    let person = ['Rodrigo', 'Emilio'];
+    return person[n];
+}
