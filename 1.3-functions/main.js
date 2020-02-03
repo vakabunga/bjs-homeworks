@@ -70,6 +70,8 @@ function getAverageScore(data) {
 
 //Задача №3
 
+//let secretData = [0, 0]
+
 function getPersonData(secretData) {
     let piratesNames = {
         firstName: '',
