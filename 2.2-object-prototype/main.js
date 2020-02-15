@@ -21,7 +21,6 @@ function initPrintAnimalSound() {
 }
 
 function getAnimalSound(animal) {
-    this.animal = animal;
     const isValidAnimal = !!animal;
     const sound = animal.sound;
     return (isValidAnimal ? sound : 'null');
