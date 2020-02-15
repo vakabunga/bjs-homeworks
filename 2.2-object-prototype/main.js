@@ -29,7 +29,7 @@ function getAnimalSound(animal) {
 function initCalculateStatement() {
     for (let idx = 0; idx < 3; idx++) {
         const marks = document.getElementById('learner-' + idx).value.split(',');
-
+        console.log(marks);
         const average = getAverageMark(marks);
 
         document.getElementById('learner-' + idx + '-average').innerHTML = average;
@@ -37,5 +37,9 @@ function initCalculateStatement() {
 }
 
 function getAverageMark(marks) {
-    // код для задачи №2 писать здесь
+    let sum = 0;
+    for (let i = 0; i < marks.length; i++) {
+        sum += Number(marks[i]);
+    }
+    return Math.round(sum / marks.length);
 }
