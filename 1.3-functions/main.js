@@ -39,15 +39,15 @@ function showSolutionsMessage(a, b, c) {
 
 //Задача №2
 
-// let data = {
-//     algebra: [1, 5, 5, 5, 5],
-//     physics: [2, 5, 5, 5, 5],
-//     math: [3, 5, 5, 5, 5],
-//     geometry: [4, 5, 5, 5, 5],
-//     music: [5, 5, 5, 5, 5]
-// }
+ let data = {
+     algebra: [1, 5, 5, 5, 5],
+     physics: [2, 5, 5, 5, 5],
+     math: [3, 5, 5, 5, 5],
+     geometry: [4, 5, 5, 5, 5],
+     music: [5, 5, 5, 5, 5]
+ }
 
-function getAverageMarkByCourse(discipline) {
+function getAverageMarkByCourse(discipline) { // получаем среднее значение данных из входящего массива (значение каждого из свойств объекта data: массив оценок по предмету)
     let sum = 0;
     for (let i = 0; i < discipline.length; i++) {
         sum += discipline[i];
@@ -56,15 +56,15 @@ function getAverageMarkByCourse(discipline) {
 }
 
 function getAverageScore(data) {
+debugger;
     let sumMark = 0;
     let counter = 0;
-    for (let prop in data) {
-        marksByCourse = data[prop];
-        data[prop] = getAverageMarkByCourse(marksByCourse);
-        sumMark += getAverageMarkByCourse(marksByCourse);
+    for (let prop in data) { //перебираем значение свойств объекта data
+        data[prop] = getAverageMarkByCourse(data[prop]); //присваеваем в значение каждого свойства объекта data результат, полученный из функции getAverageMarkByCourse (вместо массива оценок присваевается среднее значение данных массива)
+        sumMark += data[prop]; //суммируем средние значения каждого свойства
         counter++;
     }
-    data.average = sumMark / counter;
+    data.average = sumMark / counter; // вычисляем среднюю оценку
     return data;
 }
 
