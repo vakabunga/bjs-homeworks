@@ -3,7 +3,7 @@ function initCheckBirthday() {
 
     const result = checkBirthday(birthday) ? "Да" : "Нет";
 
-    document.getElementById('disclaimer').innerHTML = result;   
+    document.getElementById('disclaimer').innerHTML = result;
 }
 
 function checkBirthday(birthday) {
@@ -17,11 +17,14 @@ function initPrintAnimalSound() {
 
     const result = getAnimalSound(animal);
 
-    document.getElementById('sound').innerHTML = result;   
+    document.getElementById('sound').innerHTML = result;
 }
 
 function getAnimalSound(animal) {
-    // код для задачи №1 писать здесь
+    this.animal = animal;
+    const isValidAnimal = !!animal;
+    const sound = animal.sound;
+    return (isValidAnimal ? sound : 'null');
 }
 
 function initCalculateStatement() {
