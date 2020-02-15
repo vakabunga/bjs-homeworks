@@ -56,7 +56,6 @@ function getAverageMarkByCourse(discipline) { // получаем среднее
 }
 
 function getAverageScore(data) {
-debugger;
     let sumMark = 0;
     let counter = 0;
     for (let prop in data) { //перебираем значение свойств объекта data
