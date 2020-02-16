@@ -1,3 +1,5 @@
+
+
 class Weapon {
     constructor(name, attack, durability, range) {
         this.name = name;
