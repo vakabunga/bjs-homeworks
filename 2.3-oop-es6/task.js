@@ -3,6 +3,7 @@ class Weapon {
         this.name = name;
         this.attack = attack;
         this.durability = durability;
+        this.baseDurability = durability;
         this.range = range;
     }
     takeDamage(damage) {
@@ -10,13 +11,13 @@ class Weapon {
         else if (this.durability === Infinity) this.durability = Infinity;
         else this.durability = 0;
     }
-    set getDamage() {
-        if ((this.durability < (this.durability * 0.30)) || (this.durability === infinity)) return this.attack;
+    getDamage() {
+        if ((this.durability > (this.baseDurability * 0.30)) || (this.durability === Infinity)) return this.attack;
         else if (this.durability === 0) return 0;
         else return this.attack / 2;
     }
     isBroken() {
-        this.durability > 0 ? false : true;
+        return (this.durability > 0 ? false : true);
     }
 }
 const arm = new Weapon('Рука', 1, Infinity, 1);
