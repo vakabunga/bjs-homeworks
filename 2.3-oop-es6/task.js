@@ -150,3 +150,71 @@ const stormStaff = new ReinforcedStaff('Посох Бури', 10, '-', 3);
 
 //Задача №3
 
+class StudentLog {
+    constructor(name) {
+        this.name = name;
+        this.diary = [];
+    }
+    getName() {
+        return this.name;
+    }
+    addGrade(grade, subject) {
+        if (grade < 1 || grade > 5 || !Number.isInteger(grade)) {
+            console.log(`Вы пытались поставить оценку ${grade} по предмету ${subject}. Допускаются только числа от 1 до 5.`);
+            return 0;
+        }
+        else { // выполняем код, если отметка соответствует требованиям
+            let newMark = { //заводим данные в массив
+                subject: subject,
+                grade: [grade],
+            }
+
+            if (this.diary.length === 0) { //проверяем пустой ли дневник, если да - добавляем отметку
+                this.diary.push(newMark);
+                return 1;
+            }
+
+            let isAbsent = 0;
+            for (let i = 0; i < this.diary.length; i++) { //если массив не пустой, проверяем его на наличие схожего предмета
+
+                if (this.diary[i].subject === subject) {
+                    this.diary[i].grade.push(newMark.grade[0]) //добавляем отметку в конец массива с оценками
+                    return this.diary[i].grade.length; //возвращаем количество поставленных отметок по предмету
+                }
+                else {
+                    isAbsent++; //счетчик показывает добавилась ли оценка в массив или нет
+                }
+
+            } //если оценка не добавилась и такого предмета нет, добавляем его отдельным значением массива diary
+            if (isAbsent === this.diary.length) {
+                this.diary.push(newMark);
+                return 1;
+            }
+        }
+    }
+    getAverageBySubject(subject) {
+        let sum = 0;
+        let index = this.diary.map(function (diaryArray) {
+            return diaryArray.subject;
+        }).indexOf(subject);
+        if (index < 0) return 0;
+        for (let i = 0; i < this.diary[index].grade.length; i++) {
+            sum += this.diary[index].grade[i];
+        }
+        return (sum / this.diary[index].grade.length);
+    }
+    getTotalAverage() {
+        let sumGrades = 0;
+        let counter = 0;
+        for (let i = 0; i < this.diary.length; i++) { //перебираем значение свойств дневника
+            for (let subI = 0; subI < this.diary[i].grade.length; subI++) {
+                sumGrades += this.diary[i].grade[subI];
+                counter++;
+            }
+        }
+        return sumGrades / counter; //делим сумму средних значений по предметам на количество предметов
+    }
+
+}
+
+const log = new StudentLog('Alex Pushkin');
