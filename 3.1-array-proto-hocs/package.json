@@ -1,0 +1,15 @@
+{
+  "name": "3.1-array-proto-hocs",
+  "version": "1.0.0",
+  "description": "Паша — разработчик из компании “Тындекс” встретился с такой проблемой: иногда функция может считать результат очень долго, даже когда ей передавались одинаковые параметры, ведь она каждый раз пересчитывает результат.",
+  "main": "main.js",
+  "scripts": {
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
