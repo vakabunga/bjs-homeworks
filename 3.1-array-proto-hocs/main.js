@@ -18,28 +18,17 @@ function compareArrays(arr1, arr2) {
 function memorize(fn, limit) {
   const memory = [];
   return (...args) => {
-    const result = memory.find(item => {
-      console.log('this is item');
-      console.log(item);
-      console.log(item.args);
-      console.log('this is Array from args');
-      console.log(Array.from(args));
-      compareArrays(item.args, Array.from(args));
-      console.log('compareArrays');
-      console.log(compareArrays(item.args, Array.from(args)));
+    const result = memory.find((item) => {
+      return compareArrays(item.args, Array.from(args));
     });
     console.log(result);
     if (result) {
-      console.log('this is memory');
-      console.log(memory);
       console.log('Результат взят из памяти');
       return result.result;
     } else {
       const newResult = fn(...args);
       memory.push({ args: Array.from(args), result: newResult });
       if (memory.length > limit) memory.shift();
-      console.log('this is memory');
-      console.log(memory);
       console.log('Это новый результат');
       return newResult;
     }
